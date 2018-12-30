@@ -5,6 +5,7 @@ import com.dragoiu.nodebackup_backend.Service.NoteService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -26,7 +27,7 @@ public class NoteController {
     }
 
     @PostMapping(value = "/note")
-    public Note saveNote(Note note){
+    public Note saveNote(@RequestBody  Note note){
         return noteService.saveNote(note);
     }
 }
