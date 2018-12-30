@@ -1,18 +1,20 @@
 package dragoiu_raul.com.notesbackup.SqlLite;
 
+import java.util.UUID;
+
 public class Note {
 
-    private long id;
+    private UUID id;
     private String title;
     private String content;
 
-    public Note(long id, String title, String content) {
+    public Note(UUID id, String title, String content) {
         this.id = id;
         this.title = title;
         this.content = content;
     }
 
-    public long getId() {
+    public UUID getId() {
         return id;
     }
 
@@ -24,7 +26,7 @@ public class Note {
         return content;
     }
 
-    public void setId(long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 

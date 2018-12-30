@@ -9,6 +9,7 @@ import android.provider.BaseColumns;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import static dragoiu_raul.com.notesbackup.SqlLite.NoteDbContract.*;
 import static dragoiu_raul.com.notesbackup.SqlLite.NoteDbContract.NoteTable.COLUMN_NAME_CONTENT;
@@ -39,13 +40,14 @@ public class NoteDbHelper extends SQLiteOpenHelper {
         onUpgrade(db, oldVersion, newVersion);
     }
 
-    public long insertNote(String title, String content) {
+    public long insertNote(Note note) {
         // Create a new map of values, where column names are the keys
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues values = new ContentValues();
-        values.put(COLUMN_NAME_TITLE, title);
-        values.put(COLUMN_NAME_CONTENT, content);
+        values.put(NoteTable._ID, note.getId().toString());
+        values.put(COLUMN_NAME_TITLE, note.getTitle());
+        values.put(COLUMN_NAME_CONTENT, note.getContent());
 
 // Insert the new row, returning the primary key value of the new row
         return db.insert(TABLE_NAME, null, values);
@@ -81,11 +83,11 @@ public class NoteDbHelper extends SQLiteOpenHelper {
         );
         List<Note> notes = new ArrayList<>();
         while(cursor.moveToNext()) {
-            long itemId = cursor.getLong(
+            String itemId = cursor.getString(
                     cursor.getColumnIndexOrThrow(NoteTable._ID));
             String itemTitle = cursor.getString(cursor.getColumnIndexOrThrow(NoteTable.COLUMN_NAME_TITLE));
             String itemContent = cursor.getString(cursor.getColumnIndexOrThrow(NoteTable.COLUMN_NAME_CONTENT));
-            notes.add(new Note(itemId, itemTitle, itemContent));
+            notes.add(new Note(UUID.fromString(itemId), itemTitle, itemContent));
         }
         cursor.close();
         return notes;

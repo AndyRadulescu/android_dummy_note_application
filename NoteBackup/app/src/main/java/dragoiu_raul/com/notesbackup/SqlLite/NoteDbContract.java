@@ -6,7 +6,7 @@ public final class NoteDbContract {
 
     static final String SQL_CREATE_ENTRIES =
             "CREATE TABLE " + NoteTable.TABLE_NAME + " (" +
-                    NoteTable._ID + " INTEGER PRIMARY KEY," +
+                    NoteTable._ID + " TEXT PRIMARY KEY," +
                     NoteTable.COLUMN_NAME_TITLE + " TEXT," +
                     NoteTable.COLUMN_NAME_CONTENT + " TEXT)";
 

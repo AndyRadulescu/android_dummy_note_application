@@ -1,6 +1,7 @@
 package com.dragoiu.nodebackup_backend.Model;
 
 import javax.persistence.*;
+import java.util.UUID;
 
 @Entity
 @Table(name = "note")
@@ -9,7 +10,7 @@ public class Note {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    private Long id;
+    private UUID id;
 
     @Column
     private String title;
@@ -19,16 +20,16 @@ public class Note {
 
     public Note(){ }
 
-    public Note(String title, String content) {
+    public Note(UUID id, String title, String content) {
         this.title = title;
         this.content = content;
     }
 
-    public Long getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(Long id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
