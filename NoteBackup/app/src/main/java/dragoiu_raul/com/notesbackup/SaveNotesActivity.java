@@ -47,7 +47,7 @@ public class SaveNotesActivity extends AppCompatActivity implements AsyncRespons
         if (dbHelper.insertNote(note) != -1) {
             Toast.makeText(this, "Saved to the database", Toast.LENGTH_SHORT).show();
             //async task
-            nodePost.execute("http://192.168.0.179" + "/note", new Gson().toJson(note));
+            nodePost.execute("http://192.168.0.196:8080/note", new Gson().toJson(note));
             finish();
         } else {
             Toast.makeText(this, "Database down", Toast.LENGTH_SHORT).show();
@@ -57,6 +57,6 @@ public class SaveNotesActivity extends AppCompatActivity implements AsyncRespons
 
     @Override
     public void processFinish(String output) {
-
+        Toast.makeText(this, output, Toast.LENGTH_SHORT).show();
     }
 }

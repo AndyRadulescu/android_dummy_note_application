@@ -1,4 +1,4 @@
-package com.dragoiu.nodebackup_backend.Config;
+package com.dragoiu.nodebackup_backend.config;
 
 import org.springframework.stereotype.Component;
 

@@ -1,4 +1,4 @@
-package com.dragoiu.nodebackup_backend.Model;
+package com.dragoiu.nodebackup_backend.model;
 
 import javax.persistence.*;
 import java.util.UUID;
@@ -8,7 +8,6 @@ import java.util.UUID;
 public class Note {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private UUID id;
 

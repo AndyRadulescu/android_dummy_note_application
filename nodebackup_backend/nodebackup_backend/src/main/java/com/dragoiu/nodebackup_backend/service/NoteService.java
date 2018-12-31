@@ -1,7 +1,7 @@
-package com.dragoiu.nodebackup_backend.Service;
+package com.dragoiu.nodebackup_backend.service;
 
-import com.dragoiu.nodebackup_backend.Model.Note;
-import com.dragoiu.nodebackup_backend.Persistence.NoteRepository;
+import com.dragoiu.nodebackup_backend.model.Note;
+import com.dragoiu.nodebackup_backend.persistence.NoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import java.util.List;
